@@ -1,0 +1,31 @@
+{
+  "name": "employee_tracker2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farhahdin1997/Employee_Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farhahdin1997/Employee_Tracker/issues"
+  },
+  "homepage": "https://github.com/farhahdin1997/Employee_Tracker#readme",
+  "dependencies": {
+    "comma-number": "^2.1.0",
+    "console.table": "^0.10.0",
+    "dotenv": "^16.0.0",
+    "figlet": "^1.5.2",
+    "inquirer": "^8.2.1",
+    "install": "^0.13.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "npm": "^8.5.5"
+  }
+}
