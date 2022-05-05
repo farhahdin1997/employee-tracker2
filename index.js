@@ -17,3 +17,12 @@ const Employee = require('./employee');
 require ("dotenv").config ();
 
 
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: process.env.MYSQL,
+    database: 'myCompany_db'
+}); 
+
+
