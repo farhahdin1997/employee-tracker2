@@ -1,20 +1,13 @@
-/* Require -used for designing and building web applications quickly and easily*/
 
-/*Adds console.table method that prints an array of objects as a table in console*/
-require('console.table');
-/*
-Inquirer is an NPM package that provides an easy way to capture user input in your
- Node. js command line interface applications.*/
-const inquirer = require('inquirer');
-const mysql = require('mysql2');
-/*Comma-Number - Format a number with commas or custom character */
-const commaNumber = require('comma-number');
-/*Bringing it department role and employee*/
-// const Department = require('./department');
-// const Role = require('./role');
-// const Employee = require('./employee');
-/*Loads environment variables from .env file */
-require ("dotenv").config ();
+/*Dependancies*/
+
+/*Brings in mysql2*/
+const mysql = require("mysql");
+// Inquirer is an NPM package that provides an easy way to capture user input in your
+//  Node. js command line interface applications.*/
+const inquirer = require("inquirer");
+// /*Adds console.table method that prints an array of objects as a table in console*/
+const consoleTable = require("console.table");
 
 
 /*Connecting to database sql */
@@ -32,53 +25,7 @@ connection.connect(function (err){
 });
 options();
 
-function options() {
-    console.log('\n\n')
-    inquirer.prompt([
-        {
-            type: 'list',
-            name: 'init',
-            message: 'What would you like to do?',
-            choices: [
-                'View Departments', 
-                'View Roles', 
-                'Add Department', 
-                'Update Employee',
-                'Add Role', 
-                'Add Employee', 
-                'Exit Employee Tracker'],
-            // pageSize: 12
-        }
-    ]).then((answers) => {
-        switch(answers.init) {
-            case 'Exit Employee Tracker':
-                connection.end();
-                console.log('Goodbye');
-                /* Once exited will display goodbye*/
-                break;
-                /* Will run the fucntions to allow them to work*/
-            case 'Update Employee':
-                updateEmployee();
-                break;
-            case 'Add Department':
-                addDepartment();
-                break;
-            case 'Add Role':
-                addRole();
-                break;
-            case 'Add Employee':
-                addEmployee();
-                break;
-            case 'View Departments':
-                viewDepartments();
-                break;
-            case 'View Roles':
-                viewRoles();
-                break;
-            
-        }
-    })
-}
+
 
 /*Implementing the functions*/
 
