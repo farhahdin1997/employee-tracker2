@@ -1,25 +1,18 @@
-USE company_db;
+USE employer_trackerDB; 
 
-INSERT INTO departments(name)
-VALUES('Marketing'),
-('IT'),
-('Legal');
+INSERT INTO department (department_name)
+VALUES ("Sales"), ("Engineering"), ("Finance"), ("Legal"), ("Administration");
 
-INSERT INTO roles(title, salary, department_id)
-VALUES('Marketing leader', 80000,00, 1),
-('Support Analyst', 67893.50, 1),
-('Support lead', 89372.64, 2),
-('Senior support', 40678.51, 2),
-('Legal Secretary', 10056.54, 3),
-('Lawyer', 50345.45, 3);
+INSERT INTO role (title, salary, department_id)
+VALUES ("Lead Engineer", 100000, 2), ("Software Engineer", 70000, 2), 
+("Sales Lead", 500000, 1), ("Salesperson", 150000, 1),
+("Legal Team Lead", 200000, 4), ("Lawyer", 100000, 4),
+("Accountant", 75000, 3), ("CEO", 1000000, 5);
 
-INSERT INTO employees(first_name, last_name, role_id, manager_id)
-VALUES('Aisha', 'Din', 1, NULL),
-('Zain', 'Bhikha', 2, 1),
-('Bily', 'Manzoor', 2, 1),
-('Carol', 'Smith', 3, NULL),
-('Peter', 'Parker', 4, 4),
-('Sara', 'Mill', 4, 4),
-('Elliot', 'Toddle', 5, NULL),
-('Bill', 'Hammersmith', 6, 7),
-('Kenny', 'Pit', 6, 7);
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("John", "Doe", 1, 8), ("Mike", "Chan", 2, 1), 
+("Ashley", "Rodriguez", 3, 8), ("Dev", "Patel", 4, 3),
+("Kevin", "Tupik", 5, 8), ("Malia", "Brown", 6, 5),
+("Alexa", "Villanueva", 7, 8), ("Arturo", "Martinez", 8, null);
+
+/*CHANGE BEFORE COMIMIT*/

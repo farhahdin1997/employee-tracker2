@@ -10,9 +10,9 @@ const mysql = require('mysql2');
 /*Comma-Number - Format a number with commas or custom character */
 const commaNumber = require('comma-number');
 /*Bringing it department role and employee*/
-const Department = require('./department');
-const Role = require('./role');
-const Employee = require('./employee');
+// const Department = require('./department');
+// const Role = require('./role');
+// const Employee = require('./employee');
 /*Loads environment variables from .env file */
 require ("dotenv").config ();
 
@@ -30,17 +30,24 @@ console.log('\n\nWelcome to the Employee Tracker\n\n============================
 connection.connect(function (err){
     if (err)throw err 
 });
-questions();
+options();
 
-function questions() {
+function options() {
     console.log('\n\n')
     inquirer.prompt([
         {
             type: 'list',
             name: 'init',
             message: 'What would you like to do?',
-            choices: ['View Departments', 'View Roles', 'View Employees', 'View Department Budget', 'Update Employee','Add Department', 'Add Role', 'Add Employee', 'Delete Department', 'Delete Role', 'Delete Employee', 'Exit Employee Tracker'],
-            pageSize: 12
+            choices: [
+                'View Departments', 
+                'View Roles', 
+                'Add Department', 
+                'Update Employee',
+                'Add Role', 
+                'Add Employee', 
+                'Exit Employee Tracker'],
+            // pageSize: 12
         }
     ]).then((answers) => {
         switch(answers.init) {
@@ -65,16 +72,32 @@ function questions() {
             case 'View Departments':
                 viewDepartments();
                 break;
-            case 'View Employees':
-                viewEmployees();
-                break;
             case 'View Roles':
                 viewRoles();
-                break;
-            case 'View Department Budget':
-                viewDepartmentBudget();
                 break;
             
         }
     })
 }
+
+/*Implementing the functions*/
+
+/*Show all departments */
+
+/*Selects the department name from the department table in the database, it show the table of departments if not shows error*/
+function viewDepartments() {
+    connection.query(`SELECT name AS 'Departments' FROM departments`, (err, res) => {
+        if (err) throw err;
+        console.log('\n\n')
+        console.table(res);
+        options();
+    });
+}
+
+/*Show all roles */
+
+/*Add employee*/
+
+/*Update employee */
+
+/*Add department*/

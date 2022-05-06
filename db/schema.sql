@@ -1,24 +1,25 @@
-DROP DATABASE IF EXISTS myCompany_db;
-CREATE DATABASE myCompany_db;
+CREATE DATABASE myCompanyEmployeeTracker;
+use myCompanyEmployeeTracker;
 
-USE myCompany_db;
+CREATE TABLE employee (
+id integer not null auto_increment,
+first_name varchar(30),
+last_name varchar(30),
+role_id integer,
+manager_id integer,
+primary key (id)
+);
 
-CREATE TABLE departments(
-id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name VARCHAR(30) NOT NULL);
+CREATE TABLE department (
+id integer not null auto_increment,
+department_name varchar(30),
+primary key (id)
+);
 
-CREATE TABLE roles(
-id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-title VARCHAR(30) NOT NULL,
-salary DECIMAL(11,2) NOT NULL,
-department_id INT NOT NULL,
-FOREIGN KEY (department_id) REFERENCES departments(id));
-
-CREATE TABLE employees(
-id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-first_name VARCHAR(30) NOT NULL,
-last_name VARCHAR(30) NOT NULL,
-role_id INT NOT NULL,
-manager_id INT,
-FOREIGN KEY (role_id) REFERENCES roles(id),
-FOREIGN KEY (manager_id) REFERENCES employees(id));
+CREATE TABLE role (
+id integer not null auto_increment,
+title varchar(30),
+salary decimal (8,2),
+department_id integer,
+primary key (id)
+);
